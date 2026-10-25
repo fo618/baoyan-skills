@@ -2,6 +2,8 @@
 
 给**保研规划师**用的 AI Agent 技能，不是通用写作模板。
 
+[![validate-skills](https://github.com/fo618/baoyan-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/fo618/baoyan-skills/actions/workflows/validate.yml)
+
 一个管**产出**：学员背景 → 一键出 PPT 规划表；院校政策原文 → 家长学生看得懂的解读 HTML。
 一个管**成交**：本机微信聊天记录 → 每天排出该跟谁、卡在哪、下一句说什么。
 
@@ -82,11 +84,23 @@ pip install pycryptodome zstandard  # deal-chat：解密微信数据库
 
 各自的细节看子目录里的 `README.md` / `INSTALL.md`，以及 `test-prompts.json`（3 条回归用例，改技能后先跑一遍）。
 
+**改完先过门禁**（CI 里跑的就是这条，Ubuntu + Windows 双跑）：
+
+```bash
+python tools/validate_skills.py
+```
+
+查的是：技能目录结构、`SKILL.md` front matter（`name` 是否与目录同名、`description` 是否为空——它决定自动触发）、`test-prompts.json` 结构与 3 条下限、所有 `.py` 能否编译、所有 `.json` 能否解析、有没有真实手机号 / wxid / token / 用户目录绝对路径混进来、README 引用的图片是否存在。
+
+它**不负责**判断"给这个学员出的档位对不对"——那要模型，属于人工回归，清单就是各自目录下的 `test-prompts.json`。CI 绿了只说明没写坏，不等于效果没退化。
+
 ## 五、目录
 
 ```
 baoyan-skills/
 ├── docs/                    # 产出截图 + 社交预览图
+├── tools/validate_skills.py # 静态门禁（CI 与本地同一份）
+├── .github/workflows/       # CI：ubuntu + windows 双跑校验
 ├── baoyan-planner-tables/   # 技能 1
 │   ├── SKILL.md             # 主逻辑（约 10 万字符，含 20 条铁律 + 质量自检）
 │   ├── README.md INSTALL.md

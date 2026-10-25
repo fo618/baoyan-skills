@@ -1,0 +1,45 @@
+name: validate-skills
+
+# 静态门禁：结构 / SKILL.md front matter / test-prompts 结构 / Python 语法 / JSON / 隐私模式 / README 图片引用
+# 真正的"给学员背景能不能出对 PPT"要模型，属人工回归 —— 清单在各自 test-prompts.json
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: 结构校验 / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 跑校验
+        run: python tools/validate_skills.py
+
+      - name: 打印技能清单
+        shell: bash
+        run: |
+          echo "### 技能包" >> $GITHUB_STEP_SUMMARY
+          for d in */; do
+            if [ -f "$d/SKILL.md" ]; then
+              echo "- \`$d\` — $(grep -m1 '^name:' "$d/SKILL.md" | cut -d' ' -f2-)" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
