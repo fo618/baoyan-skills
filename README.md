@@ -2,7 +2,7 @@
 
 给**保研规划师**用的 AI Agent 技能，不是通用写作模板。
 
-[![validate-skills](https://github.com/fo618/baoyan-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/fo618/baoyan-skills/actions/workflows/validate.yml)
+[![validate-skills](https://github.com/qin-zhipeng/baoyan-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/qin-zhipeng/baoyan-skills/actions/workflows/validate.yml)
 
 一个管**产出**：学员背景 → 一键出 PPT 规划表；院校政策原文 → 家长学生看得懂的解读 HTML。
 一个管**成交**：本机微信聊天记录 → 每天排出该跟谁、卡在哪、下一句说什么。
@@ -67,7 +67,7 @@
 以 WorkBuddy 为例（Claude Code 等把路径换成对应 skills 目录即可）：
 
 ```bash
-git clone https://github.com/fo618/baoyan-skills.git
+git clone https://github.com/qin-zhipeng/baoyan-skills.git
 cp -r baoyan-skills/baoyan-planner-tables  ~/.workbuddy/skills/
 cp -r baoyan-skills/baoyan-deal-chat       ~/.workbuddy/skills/
 ```
