@@ -22,6 +22,14 @@ ROOT = Path(__file__).resolve().parent.parent
 errors: list[str] = []
 warnings: list[str] = []
 
+# Windows 控制台默认是 cp1252/GBK，print 中文会 UnicodeEncodeError（本地 GBK 能过、CI cp1252 会炸）。
+# 强制 UTF-8 输出，见 2026-10-25 CI 首次红灯排查。
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
+    except (AttributeError, ValueError):
+        pass
+
 # 明显不该出现在公开仓里的东西（按需增删，别把正常业务词当泄漏）
 SECRET_PATTERNS = [
     (re.compile(r"C:[/\\]Users[/\\][A-Za-z0-9._-]{2,}"), "真实用户目录绝对路径"),

@@ -33,6 +33,9 @@ jobs:
 
       - name: 跑校验
         run: python tools/validate_skills.py
+        env:
+          PYTHONUTF8: "1"
+          PYTHONIOENCODING: "utf-8"
 
       - name: 打印技能清单
         shell: bash
