@@ -42,7 +42,25 @@
 
 ---
 
-## 三、安装
+## 三、产出长什么样
+
+下面是这两个技能**真跑出来的东西**（一次真实交付：山东理工大学 · 网络与新媒体，学员个人信息已匿名、左栏机构标识已裁掉），不是设计稿。
+
+**表 1 学员信息表** —— 2 列 5 行，每一格都是核实过的院校口径：
+
+![学员信息表](docs/ppt-planning-guide.png)
+
+**表 2 冲稳保定档表** —— 冲 / 稳 / 保三档各 4 所，首列纵向合并，深红表头 + 浅红首列：
+
+![冲稳保定档表](docs/ppt-school-tiers.png)
+
+**形态 C 政策解读 HTML** —— 拿到院校推免政策原文后出的单文件解读表，11 个模块、可直接打印 / 转 PDF：
+
+<img src="docs/policy-report.png" width="430" alt="政策解读分析表">
+
+（完整 PPT 是 26 页、16:9；截图只放两张表。）
+
+## 四、安装
 
 以 WorkBuddy 为例（Claude Code 等把路径换成对应 skills 目录即可）：
 
@@ -64,10 +82,11 @@ pip install pycryptodome zstandard  # deal-chat：解密微信数据库
 
 各自的细节看子目录里的 `README.md` / `INSTALL.md`，以及 `test-prompts.json`（3 条回归用例，改技能后先跑一遍）。
 
-## 四、目录
+## 五、目录
 
 ```
 baoyan-skills/
+├── docs/                    # 产出截图 + 社交预览图
 ├── baoyan-planner-tables/   # 技能 1
 │   ├── SKILL.md             # 主逻辑（约 10 万字符，含 20 条铁律 + 质量自检）
 │   ├── README.md INSTALL.md
@@ -83,7 +102,7 @@ baoyan-skills/
     └── test-prompts.json
 ```
 
-## 五、证据与边界
+## 六、证据与边界
 
 这两个技能是**在真实业务里跑出来的**，不是演示稿：planner 侧按「学员背景 → 定档 → PPT → 政策原文」的真实交付链打磨过多次定版；deal-chat 侧基于真实成交与未成交会话复盘沉淀的阶段关卡。
 
@@ -93,7 +112,7 @@ baoyan-skills/
 2. **不编数据**。院校层次、推免条件、分值名次一律以原文为准；查不到就说查不到。
 3. **不自动发送**。deal-chat 只出稿，发送由人操作。
 
-## 六、许可
+## 七、许可
 
 **MIT License** —— 可以自由使用、修改、二次分发，也可以商用，保留版权声明即可，见 [LICENSE](LICENSE)。
 
