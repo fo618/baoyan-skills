@@ -1,0 +1,29 @@
+# 运行产物：含真实客户数据，绝不入库
+outbox/*.json
+outbox/*.txt
+live/
+日报/
+成交客户原始记录/
+key/
+*.key.txt
+
+# 学员 / 客户数据
+student_data_*.json
+policy_data_*.json
+*_数据源.json
+
+# 本机配置
+config.local.json
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

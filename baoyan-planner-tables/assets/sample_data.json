@@ -1,0 +1,62 @@
+{
+  "_readme": "保研规划两表数据源 —— 空骨架模板。复制一份改成你的学员即可，字段说明见 SKILL.md「数据源字段」一节。ppt_tables 只需写与完整版不同的字段，脚本会自动覆盖合并。",
+  "_warning": "⚠️ 本骨架里所有具体数字（保研率、名额、排名百分比、四六级分数）都只是**占位示例**。写真实学员时必须替换为**已核实**的来源（官方公示 / 招生简章 / 政策原文），否则按 SKILL.md 数据真实性铁律一律改写成定性表述（「排名越靠前越好」「英语成绩越高越好」「以学院当年公示为准」）。requirement 字段 PPT 不渲染，可省略。",
+
+  "meta": {
+    "school": "XX大学",
+    "major": "XX专业",
+    "undergrad_level": "211"
+  },
+  "cover": {
+    "school": "XX大学",
+    "major": "XX专业"
+  },
+
+  "student_info": {
+    "headline": "XX专业，英语XX，大X在读，排名XX/XX",
+    "rows": [
+      {
+        "label": "基本情况",
+        "content": "填：年级、专业全称、所属学院、培养特色（中外合作 / 实验班 / 基地班）、核心课程。具体数字必须已核实。"
+      },
+      {
+        "label": "保研数据",
+        "content": "填：本校保研情况、学科评估、排名现状。核实不了的写「以学院当年公示为准」，不要编比例。"
+      },
+      {
+        "label": "保研方向",
+        "content": "☑本方向：XXX；\n☑跨保：XXX；\n☑优势：XXX"
+      },
+      {
+        "label": "注意事项",
+        "content": "①推免硬门槛：以学院当年公示为准——排名越靠前越好、必修课无不及格、英语成绩越高越好；\n②XXXX；\n③短板：XXXX"
+      }
+    ]
+  },
+
+  "school_tiers": [
+    { "tier": "冲刺档", "school": "XX大学（XX学院）", "level": "985", "rank": 1, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "冲刺档", "school": "XX大学（XX学院）", "level": "985", "rank": 2, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "冲刺档", "school": "XX大学（XX学院）", "level": "985", "rank": 3, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "冲刺档", "school": "XX大学（XX学院）", "level": "985", "rank": 4, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+
+    { "tier": "稳妥档", "school": "XX大学（XX学院）", "level": "985", "rank": 5, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "稳妥档", "school": "XX大学（XX学院）", "level": "985", "rank": 6, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "稳妥档", "school": "XX大学（XX学院）", "level": "985", "rank": 7, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "稳妥档", "school": "XX大学（XX学院）", "level": "211", "rank": 8, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+
+    { "tier": "保底档", "school": "XX大学（XX学院）", "level": "985", "rank": 9,  "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "保底档", "school": "XX大学（XX学院）", "level": "211", "rank": 10, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "保底档", "school": "XX大学（XX学院）", "level": "211", "rank": 11, "direction": "XX方向", "fit": "XX学科评估 + 一句话理由" },
+    { "tier": "保底档", "school": "XX大学（XX项目）", "level": "海外", "rank": 999, "direction": "XX方向", "fit": "XX项目直升，兜底用", "overseas": true }
+  ],
+
+  "main_timeline": "已下线：可整体省略，保留仅为兼容旧数据（PPT 不渲染）",
+
+  "ppt_tables": {
+    "_readme": "可选。只写与上面不同的字段（PPT 短文案覆盖块），例如长校名换简称。",
+    "school_tiers": [
+      { "school": "XX大学（XX学院）" }
+    ]
+  }
+}

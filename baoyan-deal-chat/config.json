@@ -1,0 +1,35 @@
+{
+  "_comment": "保研客户聊单技能配置。换机器时只改这一处；路径统一用正斜杠，Python 在 Windows 下同样识别。",
+  "_setup": "首次使用必做：① 把下面所有 <你的用户名> / <你的工作目录> 换成你本机的真实路径；② python 换成你本机装了 pycryptodome、zstandard 的解释器；③ key_file 指向你抓到的微信数据库密钥 key.txt；④ work_dir 建一个空目录用于落盘；⑤ 确认 export_script 指向 wechat-chat-export 技能里的 export_all.py。详见根目录 INSTALL.md。",
+
+  "python": "C:/Users/<你的用户名>/.workbuddy/binaries/python/envs/default/Scripts/python.exe",
+
+  "data_root": "C:/Users/<你的用户名>/xwechat_files",
+  "key_file": "C:/Users/<你的用户名>/<你的工作目录>/key/key.txt",
+
+  "export_script": "C:/Users/<你的用户名>/.workbuddy/skills/wechat-chat-export/scripts/export_all.py",
+
+  "work_dir": "C:/Users/<你的用户名>/<你的工作目录>/微信聊天记录",
+
+  "datasets": [
+    "C:/Users/<你的用户名>/<你的工作目录>/微信聊天记录/live",
+    "C:/Users/<你的用户名>/<你的工作目录>/微信聊天记录/成交客户原始记录"
+  ],
+
+  "live_days": 60,
+  "kinds": "单聊",
+
+  "cadence_days": {
+    "闪电单": 2,
+    "常规": 4,
+    "长线": 7
+  },
+
+  "hot_silence_days": 3,
+  "cold_silence_days": 21,
+
+  "_internal_names_说明": "手动钉死「内部同事/自己人」的备注名，自动识别漏了就往这里加（例：[\"小李\", \"教务-王\"]）",
+  "internal_names": [],
+
+  "self_wxid": ""
+}
